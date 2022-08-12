@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            margin-top: 50px;
+            color: #fff;
+        }
+        h2{
+            font-size: 25px;
+        }
+        body{
+            background-color: rgb(30, 30, 61);
+            color: #fff;
+            text-align: center;
+        }
+        main{
+            background-color: rgb(65, 65, 249);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 10px;
+            border-radius: 10px;
+            margin: auto;
+        }
+        table{
+            margin: auto;
+        }
+        button{
+            font-size: 20px;
+            background-color: rgb(21, 21, 46);
+            color: #fff;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            margin: 1px;
+        }
+        button:hover{
+            background-color: rgb(25, 25, 102);
+        }
+        #tempo{
+            margin: auto;
+            width: 196px;
+            height: 50px;
+            font-size: 50px;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Projeto HTML-CSS_JS</h1>
+    <main>
+        <h2>CRONOMETRO</h2>
+        <p id="tempo">00:00:00</p>
+        <table>
+            <tr>
+                <td ><button id="start" onclick="start()">START</button></td>
+                <td><button id="pause" >PAUSE</button></td>
+                <td><button id="stop">STOP</button></td>
+            </tr>
+        </table>
+    </main>
+    <script>
+        var sec=00;
+        var min=00;
+        var hr=00;
+        var start= document.getElementById('start');
+        var pause= document.getElementById('pause');
+        var stop= document.getElementById('stop');
+        var tempoC
+
+        start.addEventListener('click', function(){
+            temp();
+            tempoC=setInterval(temp,1000);
+            start.removeEventListener('click',click)
+            
+        })
+        pause.addEventListener('click',function(){
+            clearInterval(tempoC);
+            start.addEventListener('click',click)
+        })
+        stop.addEventListener('click',function(){
+            clearInterval(tempoC);
+            sec=0
+            min=0
+            hr=0
+            document.getElementById('tempo').innerHTML="00:00:00"
+        })
+        function editNumero(num){
+            if(num<10){
+                return("0"+num);
+            }else{
+                return(num);
+            }
+        }
+        function temp(){
+            sec++;
+            if(sec==60){
+                sec=00;
+                min++;
+                if(min==60){
+                    min=00;
+                    hr++;
+                }else{
+                    document.getElementById('tempo').innerHTML=editNumero(hr)+':'+editNumero(min)+':'+editNumero(sec);
+                }
+            }else{
+                document.getElementById('tempo').innerHTML=editNumero(hr)+':'+editNumero(min)+':'+editNumero(sec);
+            }
+        }
+    </script>
+</body>
+</html>
