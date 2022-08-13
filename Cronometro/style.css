@@ -1,0 +1,51 @@
+@charset "UTF-8";
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    margin-top: 50px;
+    color: #fff;
+}
+h2{
+    font-size: 25px;
+}
+body{
+    background-color: rgb(30, 30, 61);
+    color: #fff;
+    text-align: center;
+}
+main{
+    background-color: rgb(65, 65, 249);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+    border-radius: 10px;
+    margin: auto;
+}
+table{
+    margin: auto;
+}
+button{
+    font-size: 20px;
+    background-color: rgb(21, 21, 46);
+    color: #fff;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin: 1px;
+}
+button:hover{
+    background-color: rgb(25, 25, 102);
+}
+#tempo{
+    margin: auto;
+    width: 196px;
+    height: 50px;
+    font-size: 50px;
+    padding: 5px;
+
+}
